@@ -12,8 +12,6 @@ def code_Residence_Type(residence_type):
 def code_yes_no(value):
     return 1 if value == 'Yes' else 0
 
-# Load the best model from the pickle file
-loaded_best_model = joblib.load('best_model.pkl')
 
 @app.route('/')
 def home():
@@ -65,6 +63,10 @@ def predict():
         # Convert user input to DataFrame
 
         user_input_df = pd.DataFrame([user_input])
+
+        # Load the best model from the pickle file
+        loaded_best_model = joblib.load('best_model.pkl')
+
 
         # Predict the house rent based on user input
         prediction = loaded_best_model.predict(user_input_df)[0]
