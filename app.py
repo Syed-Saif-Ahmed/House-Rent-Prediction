@@ -78,5 +78,11 @@ def predict():
         # Return error message
         return jsonify(error=str(e))
 
+@app.route('/favicon.ico')
+@app.route('/favicon.png')
+def favicon():
+    return '', 204
+
+
 if __name__ == '__main__':
     app.run(debug=True)
